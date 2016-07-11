@@ -1,5 +1,8 @@
 Django==1.9.7
+django-haystack==2.4.1
 django-taggit==0.20.1
 Markdown==2.6.6
 pkg-resources==0.0.0
+pysolr==3.5.0
 pytz==2016.4
+requests==2.10.0
