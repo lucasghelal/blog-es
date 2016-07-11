@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'haystack',
+    'social.apps.django_app.default',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -95,6 +96,18 @@ DATABASES = {
     }
 }
 
+# AUTHENTICATION validation
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+    'social.backends.facebook.Facebook2OAuth2',
+)
+
+# Facebook App ID
+SOCIAL_AUTH_FACEBOOK_KEY = '1738705269679063'
+# Facebook App Secret
+SOCIAL_AUTH_FACEBOOK_SECRET = '02d5e021965b1aa9f07123227ded0183'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators

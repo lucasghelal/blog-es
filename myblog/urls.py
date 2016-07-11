@@ -7,9 +7,9 @@ from blog.sitemaps import PostSitemap
 
 
 sitemaps = {
-
-    'post' : PostSitemap,
+    'post': PostSitemap,
 }
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('blog.urls',
@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
         name='django.contrib.sitemaps.views.sitemap'),
     url(r'^account/', include('account.urls')),
+    url('social-auth/', include('social.apps.django_app.urls', namespace='social')),
 ]
 
 if settings.DEBUG:
