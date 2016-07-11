@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+from django.core.urlresolvers import reverse_lazy
+
+
+LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
+LOGIN_URL = reverse_lazy('login')
+LOGOUT_URL = reverse_lazy('logout')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,6 +39,7 @@ ALLOWED_HOSTS = []
 SITE_ID = 2
 
 INSTALLED_APPS = [
+    'account',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -133,6 +140,8 @@ EMAIL_HOST_USER = 'ccuem2011@gmail.com'
 EMAIL_HOST_PASSWORD = 'turmaccuem'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Haystack Connections search engine settings
 HAYSTACK_CONNECTIONS = {
