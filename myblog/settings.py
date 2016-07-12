@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+from django.core.urlresolvers import reverse_lazy
+
+
+LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
+LOGIN_URL = reverse_lazy('login')
+LOGOUT_URL = reverse_lazy('logout')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,6 +39,7 @@ ALLOWED_HOSTS = []
 SITE_ID = 2
 
 INSTALLED_APPS = [
+    'account',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'haystack',
+    'social.apps.django_app.default',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -88,6 +96,18 @@ DATABASES = {
     }
 }
 
+# AUTHENTICATION validation
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+    'social.backends.facebook.Facebook2OAuth2',
+)
+
+# Facebook App ID
+SOCIAL_AUTH_FACEBOOK_KEY = '1738705269679063'
+# Facebook App Secret
+SOCIAL_AUTH_FACEBOOK_SECRET = '02d5e021965b1aa9f07123227ded0183'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -127,12 +147,20 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Media files
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 # Django e-mail settings
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'ccuem2011@gmail.com'
 EMAIL_HOST_PASSWORD = 'turmaccuem'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Haystack Connections search engine settings
 HAYSTACK_CONNECTIONS = {
