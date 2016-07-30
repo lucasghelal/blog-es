@@ -1,29 +1,29 @@
 {% extends "base.html" %}
 
-{% block title %}Log-in{% endblock %}
+{% block title %}Entrar{% endblock %}
 
 {% block content %}
-  <h1>Log-in</h1>
+  <h1>Entrar</h1>
   {% if form.errors %}
   <p>
-    Your username and password didn't match.
-    Please try again.
+    Seu nome de usuário ou senha não conferem.
+    Por favor, tente novamente.
   </p>
   {% else %}
-    <p>Please, use the following form to log-in:</p>
+    <p>Por favor, preencha o seguinte formulário para entrar:</p>
   {% endif %}
   <div class="login-form">
     <form action="{% url 'login' %}" method="post">
-      <p><a href="{% url "password_reset" %}">Forgotten your password?</a></p>
+      <p><a href="{% url "password_reset" %}">Esqueceu o sua senha?</a></p>
       {{ form.as_p }}
       {% csrf_token %}
       <input type="hidden" name="next" value="{{ next }}" />
-      <p><input type="submit" value="Log-in"></p>
+      <p><input type="submit" value="Entrar"></p>
     </form>
   </div>
   <div class="social">
         <ul>
-            <li class="facebook"><a href="{% url "social:begin" "facebook" %}">Login with Facebook</a></li>
+            <li class="facebook"><a href="{% url "social:begin" "facebook" %}">Entrar com Facebook</a></li>
         </ul>
     </div>
 {% endblock %}

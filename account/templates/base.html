@@ -7,7 +7,7 @@
 </head>
 <body>
   <div id="header">
-    <span class="logo">Blog Mestrado</span>
+    <span class="logo">Blog Vida de Mestrando</span>
      {% if request.user.is_authenticated %}
      <ul class="menu">
          <li {% if section == "dashboard" %}class="selected"{% endif %}><a href="{% url "dashboard" %}">Blog Mestrado</a></li>
@@ -17,10 +17,10 @@
      {% endif %}
   <span class="user">
     {% if request.user.is_authenticated %}
-        Hello {{ request.user.first_name }},
-        <a href="{% url "logout" %}">Logout</a>
+        Olá {{ request.user.first_name }},
+        <a href="{% url "logout" %}">Sair</a>
       {% else %}
-        <a href="{% url "login" %}">Log-in</a>
+        <a href="{% url "login" %}">Entrar</a>
       {% endif %}
     </span>
   </div>
