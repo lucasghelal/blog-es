@@ -1,26 +1,25 @@
-lal
 {% extends "blog/base.html" %}
 
-{% block title %}Search{% endblock %}
+{% block title %}Pesquisar{% endblock %}
 
 {% block content %}
     {% if "query" in request.GET %}
-        <h1>Posts containing "{{ cd.query }}"</h1>
-        <h3>Found {{ total_results }} result{{ total_results|pluralize }}</h3>
+        <h1>Posts contendo "{{ cd.query }}"</h1>
+        <h3>Encontrados {{ total_results }} resultado{{ total_results|pluralize }}</h3>
         {% for result in results %}
         	{% with post=result.object %}
         		<h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
                 {{ post.body|truncatewords:5 }}
         	{% endwith %}
         {% empty %}
-        	<p>There are no results for your query.</p>
+        	<p>Não existem resultados para essa pesquisa.</p>
         {% endfor %}
-        <p><a href="{% url "blog:post_search" %}">Search again</a></p>
+        <p><a href="{% url "blog:post_search" %}">Buscar novamente.</a></p>
     {% else %}
-        <h1>Search for posts</h1>
+        <h1>Buscar por posts</h1>
         <form action="." method="get">
             {{ form.as_p }}
-            <input type="submit" value="Search">
+            <input type="submit" value="Pesquisar">
         </form>
     {% endif %}
 {% endblock %}
