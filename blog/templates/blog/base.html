@@ -1,8 +1,13 @@
 {% load blog_tags %}
+{% load material_form %}
 {% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 <head>
+  {% include 'material/includes/material_css.html' %}
+  <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
+  {% include 'material/includes/material_js.html' %}
   <title>{% block title %}{% endblock %}</title>
   <link href="{% static "css/blog.css" %}" rel="stylesheet">
 </head>
