@@ -8,6 +8,7 @@ from taggit.models import Tag
 from django.db.models import Count
 from haystack.query import SearchQuerySet
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 
 
 class PostListView(ListView):
@@ -17,6 +18,7 @@ class PostListView(ListView):
     template_name = 'blog/post/list.html'
 
 
+@login_required
 def post_new(request):
     if request.method == "POST":
         new_post = NewPostForm(request.POST)
