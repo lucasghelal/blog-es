@@ -1,12 +1,13 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
-from .forms import EmailPostForm, CommentForm, SearchForm
+from .forms import EmailPostForm, CommentForm, SearchForm, NewPostForm
 from django.core.mail import send_mail
 from taggit.models import Tag
 from django.db.models import Count
 from haystack.query import SearchQuerySet
+from django.utils import timezone
 
 
 class PostListView(ListView):
@@ -14,6 +15,20 @@ class PostListView(ListView):
     context_object_name = 'posts'
     paginate_by = 3
     template_name = 'blog/post/list.html'
+
+
+def post_new(request):
+    if request.method == "POST":
+        new_post = NewPostForm(request.POST)
+        if new_post.is_valid():
+            post = new_post.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('/blog')
+    else:
+        new_post = NewPostForm()
+    return render(request, 'blog/post/new_post.html', {'new_post': new_post})
 
 
 def post_list(request, tag_slug=None):

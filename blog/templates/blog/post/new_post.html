@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+{% load material_form %}
+
+{% block title %}New Post{% endblock %}
+{% block content %}
+  <h1>Novo Post</h1>
+<div>
+    <form action="/blog/new/" method="POST" class="post-form">
+
+        {% csrf_token %}
+        {{ new_post }}
+        <button type="submit" class="btn green" href="blog">Enviar</button>
+    </form>
+</div>
+{% endblock %}

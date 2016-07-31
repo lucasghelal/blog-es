@@ -21,6 +21,7 @@
         <p class="date">Publicado {{ post.publish }} por {{ post.author }}</p>
         {{ post.body|markdown|truncatewords_html:30 }}
     {% endfor %}
+    <a href="/blog/new" class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">add</i></a>
 
     {% include "pagination.html" with page=posts %}
 {% endblock %}
