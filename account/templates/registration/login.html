@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load material_form %}
-{% load material_form %}
 
 {% block title %}Entrar{% endblock %}
 
@@ -20,12 +19,12 @@
       {{ form.as_p }}
       {% csrf_token %}
       <input type="hidden" name="next" value="{{ next }}" />
-      <p><input type="submit" value="Entrar"></p>
+      <p><input class="btn green" type="submit" value="Entrar"></p>
     </form>
   </div>
   <div class="social">
         <ul>
-            <li class="facebook"><a href="{% url "social:begin" "facebook" %}">Entrar com Facebook</a></li>
+            <li class="btn facebook"><a href="{% url "social:begin" "facebook" %}">Entrar com Facebook</a></li>
         </ul>
     </div>
 {% endblock %}

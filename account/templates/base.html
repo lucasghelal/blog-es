@@ -11,24 +11,24 @@
   <link href="{% static "css/base.css" %}" rel="stylesheet">
 </head>
 <body>
-  <div id="header">
-    <span class="logo">Blog Vida de Mestrando</span>
-     {% if request.user.is_authenticated %}
-     <ul class="menu">
-         <li {% if section == "dashboard" %}class="selected"{% endif %}><a href="{% url "dashboard" %}">Blog Mestrado</a></li>
-         <li {% if section == "images" %}class="selected"{% endif %}><a href="#">Images</a></li>
-         <li {% if section == "people" %}class="selected"{% endif %}><a href="#">People</a></li>
-     </ul>
-     {% endif %}
-  <span class="user">
-    {% if request.user.is_authenticated %}
-        Olá {{ request.user.first_name }},
-        <a href="{% url "logout" %}">Sair</a>
-      {% else %}
-        <a href="{% url "login" %}">Entrar</a>
-      {% endif %}
-    </span>
-  </div>
+    <nav>
+        <div class="nav-wrapper green  darken-3">
+            <a href"#" class="brand-logo center">Blog Vida de Mestrando</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+               <li><a href="sass.html">Post</a></li>
+               <li><a href="badges.html">Post</a></li>
+               <li><a href="collapsible.html">Post</a></li>
+           </ul>
+           <ul id="nav-mobile" class="right hide-on-med-and-down">
+               {% if request.user.is_authenticated %}
+                    <li>Olá {{ request.user.first_name }},<li>
+                    <li><a href="{% url "logout" %}">Sair</a></li>
+                    {% else %}
+                        <li> <a href="{% url "login" %}">Entrar</a></li>
+                    {% endif %}
+           </ul>
+   </div>
+ </nav>
   {% if messages %}
        <ul class="messages">
            {% for message in messages %}
