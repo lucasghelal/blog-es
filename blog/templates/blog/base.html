@@ -12,9 +12,29 @@
   <link href="{% static "css/blog.css" %}" rel="stylesheet">
 </head>
 <body>
+    <nav>
+        <div class="nav-wrapper green  darken-3">
+            <a href"{% url 'dashboard' %}" class="brand-logo center">
+                <span>Blog Vida de Mestrando</span>
+                </a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+               <li><a href="{% url 'dashboard' %}">Home</a></li>
+               <li><a href="/blog">Blog</a></li>
+           </ul>
+           <ul id="nav-mobile" class="right hide-on-med-and-down">
+               {% if request.user.is_authenticated %}
+                    <li>Olá {{ request.user.first_name }},<li>
+                    <li><a href="{% url "logout" %}">Sair</a></li>
+                    {% else %}
+                        <li> <a href="{% url "login" %}">Entrar</a></li>
+                    {% endif %}
+           </ul>
+   </div>
+ </nav>
   <div id="content">
     {% block content %}
     {% endblock %}
+    <a class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">add</i></a>
   </div>
   <div id="sidebar">
     <h2>Blog Vida de Mestrando</h2>

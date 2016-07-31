@@ -38,7 +38,7 @@
         <form action="." method="post">
             {{ comment_form.as_p }}
             {% csrf_token %}
-            <p><input type="submit" value="Enviar comentário"></p>
+            <p><input class="btn green" type="submit" value="Enviar comentário"></p>
         </form>
     {%  endif %}
 {% endblock %}

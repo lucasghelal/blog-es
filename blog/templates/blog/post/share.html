@@ -12,7 +12,7 @@
         <form action="." method="post">
             {{ form.as_p }}
             {% csrf_token %}
-            <input type="submit" value="Enviar e-mail">
+            <input class="btn green" type="submit" value="Enviar e-mail">
         </form>
     {% endif %}
 {% endblock %}

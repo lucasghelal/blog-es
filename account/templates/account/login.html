@@ -5,10 +5,11 @@
 
 {% block content %}
 <h1>Log-in</h1>
-<p>Por favor, utilize o seguinte formulário para entrar. Se ainda não tem uma conta <a href="{% url "register" %}">registre-se aqui.</a></p>
+<p>Por favor, utilize o seguinte formulário para entrar.</p>
+<p>Se ainda não tem uma conta <a href="{% url "register" %}">registre-se aqui.</a></p>
 <form action="." method="post">
   {{ form.as_p }}
   {% csrf_token %}
-  <p><input class="btn green" type="submit" value="Entrar"></p>
+  <p><input class="btn green" type="submit" value="aa"></p>
 </form>
 {% endblock %}

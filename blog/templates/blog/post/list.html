@@ -5,12 +5,12 @@
 {% block title %}Blog Vida de Mestrando{% endblock %}
 
 {% block content %}
-    <h1>Blog Vida de Mestrando</h1>
+    <h2>Bem vindo ao BVM</h2>
     {% if tag %}
-        <h2>Posts usados a tag "{{ tag.name }}"</h2>
+        <h5>Posts usados a tag "{{ tag.name }}"</h5>
     {% endif %}
     {% for post in posts %}
-        <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+        <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
         <p class="tags">
             Tags:
             {% for tag in post.tags.all %}
