@@ -1,17 +1,17 @@
-body { 
+body {
     margin:0;
     padding:0;
-    font-family:helvetica, sans-serif; 
+    font-family:helvetica, sans-serif;
 }
 
-a { 
-    color:#00abff;
-    text-decoration:none; 
+a {
+    color:#01579b;
+    text-decoration:none;
 }
 
-h1 { 
+h1 {
     font-weight:normal;
-    border-bottom:1px solid #bbb;
+    border-bottom:1px solid #000000;
     padding:0 0 10px 0;
 }
 
@@ -20,41 +20,41 @@ h2 {
     margin:30px 0 0;
 }
 
-#content { 
+#content {
     float:left;
     width:60%;
-    padding:0 0 0 30px; 
+    padding:0 0 0 30px;
 }
 
-#sidebar { 
+#sidebar {
     float:right;
     width:30%;
     padding:10px;
-    background:#efefef; 
+    background:#efefef;
     height:100%;
 }
 
-p.date { 
+p.date {
     color:#ccc;
     font-family: georgia, serif;
     font-size: 12px;
-    font-style: italic; 
+    font-style: italic;
 }
 
 /* pagination */
-.pagination { 
-    margin:40px 0; 
+.pagination {
+    margin:40px 0;
     font-weight:bold;
 }
 
 /* forms */
-label { 
+/*label {
     float:left;
     clear:both;
     color:#333;
-    margin-bottom:4px; 
-}
-input, textarea { 
+    margin-bottom:4px;
+}*/
+/*input, textarea {
     clear:both;
     float:left;
     margin:0 0 10px;
@@ -67,15 +67,14 @@ input[type=submit] {
     font-weight:bold;
     background:#00abff;
     color:#fff;
-    padding:10px 20px;
     font-size:14px;
-    text-transform:uppercase; 
-}
-.errorlist { 
+    text-transform:uppercase;
+}*/
+.errorlist {
     color:#cc0033;
     float:left;
     clear:both;
-    padding-left:10px; 
+    padding-left:10px;
 }
 
 /* comments */

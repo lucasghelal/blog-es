@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load material_form %}
+
+{% block title %}Entrar{% endblock %}
+
+{% block content %}
+  <h1>Entrar</h1>
+  {% if form.errors %}
+  <p>
+    Seu nome de usuário ou senha não conferem.
+    Por favor, tente novamente.
+  </p>
+  {% else %}
+    <p>Por favor, preencha o seguinte formulário para entrar:</p>
+  {% endif %}
+  <p>Se ainda não tem uma conta <a href="{% url "register" %}">registre-se aqui.</a></p>
+  <div class="login-form">
+    <form action="{% url 'login' %}" method="post">
+      {{ form.as_p }}
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ next }}" />
+      <p><a href="{% url "password_reset" %}">Esqueceu o sua senha?</a></p>
+      <p><input class="btn green" type="submit" value="Entrar"></p>
+    </form>
+  </div>
+  <div class="social">
+        <ul>
+            <li class="btn facebook"><a href="{% url "social:begin" "facebook" %}">Entrar com Facebook</a></li>
+        </ul>
+    </div>
+{% endblock %}

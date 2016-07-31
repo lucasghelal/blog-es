@@ -1,17 +1,18 @@
 {% extends "blog/base.html" %}
+{% load material_form %}
 
-{% block title %}Share a post{% endblock %}
+{% block title %}Compartilhe um post{% endblock %}
 
 {% block content %}
     {% if sent %}
-        <h1>E-mail successfully sent</h1>
-        <p>"{{ post.title }}" was successfully sent by e-mail.</p>
+        <h1>E-mail enviado com sucesso</h1>
+        <p>"{{ post.title }}" foi enviado com sucesso por e-mail.</p>
     {% else %}
-        <h1>Share "{{ post.title }}" by e-mail</h1>
+        <h1>Compartilhe "{{ post.title }}" por e-mail</h1>
         <form action="." method="post">
             {{ form.as_p }}
             {% csrf_token %}
-            <input type="submit" value="Send e-mail">
+            <input class="btn green" type="submit" value="Enviar e-mail">
         </form>
     {% endif %}
 {% endblock %}

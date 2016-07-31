@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load material_form %}
+
+{% block title %}Sair{% endblock %}
+
+{% block content %}
+  <h1>Sair</h1>
+  <p>Você saiu. Você pode <a href="{% url "login" %}">Entrar novamente</a>.</p>
+{% endblock %}

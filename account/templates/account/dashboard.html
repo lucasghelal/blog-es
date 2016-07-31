@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load material_form %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+  <h1>Blog</h1>
+  <p>Bem vindo ao blog.
+    Você pode <a href="{% url "edit" %}">editar seu perfil</a> ou
+            <a href="{% url "password_change" %}">Mudar sua senha.</a>.
+  </p>
+{% endblock %}

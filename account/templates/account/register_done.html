@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load material_form %}
+
+{% block title %}Bem Vindo{% endblock %}
+
+{% block content %}
+  <h1>Bem vindo {{ new_user.first_name }}!</h1>
+  <p>Sua assinatura foi criada com sucesso. Aguarde permissão para poder entrar. <a href="{% url "login" %}">Entrar</a>.</p>
+{% endblock %}
