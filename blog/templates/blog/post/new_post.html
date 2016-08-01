@@ -3,12 +3,12 @@
 
 {% block title %}New Post{% endblock %}
 {% block content %}
-  <h1>Novo Post</h1>
+  <h2>Novo Post</h2>
 <div>
     <form action="/blog/new/" method="POST" class="post-form">
 
+        {% form form=new_post %}{% endform %}
         {% csrf_token %}
-        {{ new_post }}
         <button type="submit" class="btn green" href="blog">Enviar</button>
     </form>
 </div>

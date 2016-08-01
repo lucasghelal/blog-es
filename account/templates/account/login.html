@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+
+{% load staticfiles %}
 {% load material_form %}
 
 {% block title %}Entrar{% endblock %}
@@ -8,8 +10,8 @@
 <p>Por favor, utilize o seguinte formulário para entrar.</p>
 <p>Se ainda não tem uma conta <a href="{% url "register" %}">registre-se aqui.</a></p>
 <form action="." method="post">
-  {{ form }}
-  {% csrf_token %}
+    {% form form=form %}{% endform %}
+    {% csrf_token %}
   <p><input class="btn green" type="submit" value="aa"></p>
 </form>
 {% endblock %}
