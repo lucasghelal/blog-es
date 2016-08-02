@@ -7,7 +7,7 @@
   <h1>Criar sua conta</h1>
   <p>Por favor, registre-se seguindo o formulário:</p>
   <form action="." method="post">
-    {{ user_form.as_p }}
+    {% form form=user_form %}{% endform %}
     {% csrf_token %}
     <p><input class="btn green" type="submit" value="Criar minha conta"></p>
   </form>

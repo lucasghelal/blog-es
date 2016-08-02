@@ -5,11 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  {% include 'material/includes/material_css.html' %}
-  <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
-  {% include 'material/includes/material_js.html' %}
-  <title>{% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {% include 'material/includes/material_css.html' %}
+    <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
+    {% include 'material/includes/material_js.html' %}
   <link href="{% static "css/blog.css" %}" rel="stylesheet">
+  <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
     <nav>

@@ -1,28 +1,32 @@
 # blog-es
 Trabalho de Engenharia de Software
 
-configurar virtualenv e virtualenvwapper
+Configuração
+------------
 
-criar ambiente:
+Instalar Virtualenv e virtualenvwapper
+
+Criar Ambiente:
+
 mkvirtualenv --python=/usr/bin/python3 blog-es
 
-instalar requirements:
+Instalar requirements:
 pip install -r requirements.txt
 
-installar java
+Installar java
 http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-- ubuntu
+- Ubuntu
     sudo add-apt-repository ppa:webupd8team/java
     sudo apt-get update
     sudo apt-get install oracle-java8-installer
 para confirmar basta digitar: javac -v
 
-download do solr 4.10.4
+Download do solr 4.10.4
 wget http://www.us.apache.org/dist/lucene/solr/4.10.4/solr-4.10.4.tgz
 
-# TODO -> fazer um script para fazer configuração automatica
-
-
-settings.py
-
-alterar a variavel SITE_ID para funcionar o RSS
+TODO 
+----
+- [ ] Alterar interface no material;
+- [ ] Fazer um script para fazer configuração automatica;
+- [ ] Passar configurações dos settings.py para o env;
+- [x] Alterar a variavel SITE_ID para funcionar o RSS;

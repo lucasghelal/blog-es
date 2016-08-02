@@ -7,8 +7,10 @@
   <h1>Edite sua conta</h1>
   <p>Você pode editar sua conta seguindo o seguinte formulário:</p>
   <form action="." method="post" enctype="multipart/form-data">
-    {{ user_form.as_p }}
-    {{ profile_form.as_p }}
+    {% form form=user_form %}{% endform %}
+    {% form form=profile_form %}{% endform %}
+    <!-- {{ user_form }}
+    {{ profile_form }} -->
     {% csrf_token %}
     <p><input class="btn green" type="submit" value="Salvar"></p>
   </form>

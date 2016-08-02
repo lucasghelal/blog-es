@@ -6,7 +6,7 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
-    <h1>{{ post.title }}</h1>
+    <h2>{{ post.title }}</h2>
     <p class="date">Publicado {{ post.publish }} por {{ post.author }}</p>
     {{ post.body|markdown }}
     <p><a href="{% url "blog:post_share" post.id %}">Compartilhe esse post</a></p>
@@ -19,7 +19,7 @@
     {% endfor %}
 
     {% with comments.count as total_comments %}
-        <h2>{{ total_comments }} comment{{ total_comments|pluralize }}</h2>
+        <h4>{{ total_comments }} comment{{ total_comments|pluralize }}</h4>
     {% endwith %}
 
     {% for comment in comments %}
@@ -32,11 +32,11 @@
     {% endfor %}
 
     {% if new_comment %}
-        <h2>Seu comentário foi enviado :)</h2>
+        <h4>Seu comentário foi enviado :)</h4>
     {% else %}
-        <h2>Escreva um novo comentário  </h2>
+        <h4>Escreva um novo comentário  </h4>
         <form action="." method="post">
-            {{ comment_form.as_p }}
+            {% form form=comment_form %}{% endform %}
             {% csrf_token %}
             <p><input class="btn green" type="submit" value="Enviar comentário"></p>
         </form>

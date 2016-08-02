@@ -16,7 +16,7 @@
   <p>Se ainda não tem uma conta <a href="{% url "register" %}">registre-se aqui.</a></p>
   <div class="login-form">
     <form action="{% url 'login' %}" method="post">
-      {{ form.as_p }}
+      {% form form=form %}{% endform %}
       {% csrf_token %}
       <input type="hidden" name="next" value="{{ next }}" />
       <p><a href="{% url "password_reset" %}">Esqueceu o sua senha?</a></p>
