@@ -9,6 +9,7 @@ from django.db.models import Count
 from haystack.query import SearchQuerySet
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 class PostListView(ListView):
@@ -27,7 +28,8 @@ def post_new(request):
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('/blog')
+            print (request)
+            return render(request, 'blog/post/new_post_ok.html')
     else:
         new_post = NewPostForm()
     return render(request, 'blog/post/new_post.html', {'new_post': new_post})

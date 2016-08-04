@@ -25,7 +25,10 @@
                     <li>Olá {{ request.user.first_name }},<li>
                     <li><a href="{% url "logout" %}">Sair</a></li>
                     {% else %}
-                        <li> <a href="{% url "login" %}">Entrar</a></li>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li> <a href="/register">Assinar</a></li>
+                            <li> <a href="{% url "login" %}">Entrar</a></li>
+                        </ul>
                     {% endif %}
            </ul>
    </div>

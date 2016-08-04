@@ -24,10 +24,14 @@
            </ul>
            <ul id="nav-mobile" class="right hide-on-med-and-down">
                {% if request.user.is_authenticated %}
+                    <li><a href="http://localhost:8000/admin/blog/post/?status__exact=draft">Rascunhos</a></li>
                     <li>Olá {{ request.user.first_name }},<li>
                     <li><a href="{% url "logout" %}">Sair</a></li>
                     {% else %}
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li> <a href="/blog">Assinar</a></li>
                         <li> <a href="{% url "login" %}">Entrar</a></li>
+                    </ul>
                     {% endif %}
            </ul>
    </div>

@@ -40,6 +40,7 @@ def register(request):
             new_user.save()
             # Create the user profile
             profile = Profile.objects.create(user=new_user)
+            messages.success(request, 'Novo perfil criado com sucesso')
             return render(request,
                           'account/register_done.html',
                           {'new_user': new_user})
@@ -59,9 +60,9 @@ def edit(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, 'Profile updated successfully')
+            messages.success(request, 'Perfil atualizado com sucesso')
         else:
-            messages.error(request, 'Error updating your profile')
+            messages.error(request, 'Erro ao atualizar o perfil')
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)

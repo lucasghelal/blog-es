@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% load material_form %}
 
 {% block title %}Registra-se{% endblock %}
@@ -9,6 +10,8 @@
   <form action="." method="post">
     {% form form=user_form %}{% endform %}
     {% csrf_token %}
-    <p><input class="btn green" type="submit" value="Criar minha conta"></p>
+     <p>A opção de plano que temos no momento é o:</p>
+    <img src="{% static "img/assinatura.png" %}" alt="Plano-1">
+    <p><input class="btn green" type="submit" value="Fazer assinatura"></p>
   </form>
 {% endblock %}
