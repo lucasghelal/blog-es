@@ -5,5 +5,7 @@
 
 {% block content %}
   <h1>Bem vindo {{ new_user.first_name }}!</h1>
-  <p>Sua assinatura foi criada com sucesso. Aguarde permissão para poder entrar. <a href="{% url "login" %}">Entrar</a>.</p>
+  <p>Sua assinatura foi criada com sucesso.</p>
+  <p>Um boleto foi enviado para seu e-mail. Após o pagamento sua conta será liberada.</p>
+  <p>Aguarde permissão para poder entrar. <a href="{% url "login" %}">Entrar</a>.</p>
 {% endblock %}

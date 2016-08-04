@@ -171,3 +171,5 @@ HAYSTACK_CONNECTIONS = {
         'URL': 'http://127.0.0.1:8983/solr/blog'
     },
 }
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
